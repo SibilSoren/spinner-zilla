@@ -1,160 +1,130 @@
-import React, { useState, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import * as Spinners from 'spinner-zilla';
-import 'spinner-zilla/styles.css';
+import React, { useEffect, useState } from 'react';
+import {
+  CircleSpinner,
+  PulseSpinner,
+  WaveSpinner,
+  ClockSpinner,
+  SquareSpinner,
+  StarSpinner,
+  HeartbeatSpinner,
+  DNASpinner,
+  GalaxySpinner,
+  MatrixSpinner,
+  FlipSpinner,
+  DotSpinner,
+} from 'spinner-zilla';
 
-// Lazy load components
-const SyntaxHighlighter = React.lazy(() => import('react-syntax-highlighter').then(module => ({ 
-  default: module.Prism 
-})));
-const tomorrow = React.lazy(() => import('react-syntax-highlighter/dist/esm/styles/prism').then(module => ({
-  default: module.tomorrow
-})));
-
-const colors = [
-  'text-blue-500',
-  'text-green-500',
-  'text-red-500',
-  'text-purple-500',
-  'text-yellow-500',
-  'text-pink-500'
+const spinnerComponents = [
+  { name: 'CircleSpinner', component: CircleSpinner },
+  { name: 'PulseSpinner', component: PulseSpinner },
+  { name: 'WaveSpinner', component: WaveSpinner },
+  { name: 'ClockSpinner', component: ClockSpinner },
+  { name: 'SquareSpinner', component: SquareSpinner },
+  { name: 'StarSpinner', component: StarSpinner },
+  { name: 'HeartbeatSpinner', component: HeartbeatSpinner },
+  { name: 'DNASpinner', component: DNASpinner },
+  { name: 'GalaxySpinner', component: GalaxySpinner },
+  { name: 'MatrixSpinner', component: MatrixSpinner },
+  { name: 'FlipSpinner', component: FlipSpinner },
+  { name: 'DotSpinner', component: DotSpinner },
 ];
 
-const sizes = ['sm', 'md', 'lg', 'xl'] as const;
+const Header = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentSpinnerIndex, setCurrentSpinnerIndex] = useState(0);
 
-const Header = () => (
-  <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
-    <div className="container mx-auto px-4">
-      <h1 className="text-5xl font-bold mb-4 text-center">🌀 Spinner-Zilla</h1>
-      <p className="text-xl text-center mb-8">Beautiful, customizable loading animations for React</p>
-      <div className="flex justify-center space-x-4">
-        <a href="#demo" className="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-all">
-          View Demo
-        </a>
-        <a href="https://github.com/yourusername/spinner-zilla" className="bg-purple-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-all">
-          GitHub
-        </a>
-      </div>
-    </div>
-  </header>
-);
+  useEffect(() => {
+    setIsVisible(true);
+    const interval = setInterval(() => {
+      setCurrentSpinnerIndex((prev) => (prev + 1) % spinnerComponents.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
-const Features = () => (
-  <section className="py-16 bg-white">
-    <div className="container mx-auto px-4">
-      <h2 className="text-3xl font-bold mb-12 text-center">Features</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="text-center p-6">
-          <div className="text-4xl mb-4">🎨</div>
-          <h3 className="text-xl font-semibold mb-2">Customizable</h3>
-          <p className="text-gray-600">Easily customize colors, sizes, and animations to match your design</p>
-        </div>
-        <div className="text-center p-6">
-          <div className="text-4xl mb-4">📱</div>
-          <h3 className="text-xl font-semibold mb-2">Responsive</h3>
-          <p className="text-gray-600">Four sizes (sm, md, lg, xl) for perfect fit on any screen</p>
-        </div>
-        <div className="text-center p-6">
-          <div className="text-4xl mb-4">⚡</div>
-          <h3 className="text-xl font-semibold mb-2">Lightweight</h3>
-          <p className="text-gray-600">Zero dependencies except React and minimal bundle size</p>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-const Installation = () => {
-  const npmInstall = 'npm install spinner-zilla';
-  const usage = `import { CircleSpinner } from 'spinner-zilla';
-import 'spinner-zilla/styles.css';  // Don't forget to import styles!
-
-function App() {
-  return (
-    <div className="flex space-x-4">
-      <CircleSpinner size="md" color="text-blue-500" />
-      <PulseSpinner size="lg" color="text-purple-500" />
-    </div>
-  );
-}`;
+  const CurrentSpinner = spinnerComponents[currentSpinnerIndex].component;
 
   return (
-    <section className="py-16 bg-gray-50" id="installation">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Installation</h2>
-        <div className="max-w-2xl mx-auto">
-          <Suspense fallback={<div className="animate-pulse bg-gray-200 h-12 rounded-lg mb-8" />}>
-            <SyntaxHighlighter language="bash" style={tomorrow} className="rounded-lg mb-8">
-              {npmInstall}
-            </SyntaxHighlighter>
-          </Suspense>
-          <h3 className="text-xl font-semibold mt-8 mb-4">Usage</h3>
-          <div className="bg-gray-800 text-gray-300 p-4 rounded-lg mb-4">
-            ⚠️ Important: Always import the CSS file to enable animations!
+    <header className="bg-gradient-to-r from-purple-600 to-blue-500 text-white py-20">
+      <div className={`container mx-auto px-4 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className="flex flex-col items-center space-y-6">
+          <div className="text-6xl font-bold mb-4">Spinner-Zilla</div>
+          <p className="text-xl text-center mb-8 animate-pulse">Beautiful, customizable loading animations for React</p>
+          <div className="h-20 w-20 mb-8">
+            <CurrentSpinner size="xl" color="text-white" />
           </div>
-          <Suspense fallback={<div className="animate-pulse bg-gray-200 h-48 rounded-lg" />}>
-            <SyntaxHighlighter language="jsx" style={tomorrow} className="rounded-lg">
-              {usage}
-            </SyntaxHighlighter>
-          </Suspense>
+          <div className="flex justify-center space-x-4">
+            <a 
+              href="#demo" 
+              className="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 hover:shadow-lg"
+            >
+              View Demo
+            </a>
+            <a 
+              href="https://github.com/SibilSoren/spinner-zilla" 
+              className="bg-purple-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 hover:shadow-lg"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 
-const SpinnerDemo = ({ name, Component }: { name: string; Component: any }) => {
-  const [color, setColor] = useState(colors[0]);
-  const [size, setSize] = useState<typeof sizes[number]>('md');
+const SpinnerCard = ({ name, Component }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [size, setSize] = useState('md');
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-lg font-semibold mb-4">{name}</h3>
-      <div className="flex justify-center items-center h-24 mb-4 bg-gray-50 rounded-lg">
-        <Component color={color} size={size} />
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Color</label>
-          <select 
-            className="w-full border rounded p-2"
-            value={color}
-            onChange={(e) => setColor(e.target.value)}
-          >
-            {colors.map((c) => (
-              <option key={c} value={c}>{c.replace('text-', '').replace('-500', '')}</option>
-            ))}
-          </select>
+    <div
+      className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setSize(size === 'md' ? 'lg' : 'md')}
+    >
+      <div className="flex flex-col items-center space-y-4">
+        <div className="h-16 w-16 flex items-center justify-center">
+          <Component size={size} color={isHovered ? 'text-purple-600' : 'text-gray-600'} />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Size</label>
-          <select 
-            className="w-full border rounded p-2"
-            value={size}
-            onChange={(e) => setSize(e.target.value as typeof sizes[number])}
-          >
-            {sizes.map((s) => (
-              <option key={s} value={s}>{s}</option>
-            ))}
-          </select>
-        </div>
+        <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
       </div>
     </div>
   );
 };
 
-const SpinnersShowcase = () => {
-  const spinnerComponents = Object.entries(Spinners)
-    .filter(([name]) => name.endsWith('Spinner'))
-    .sort(([a], [b]) => a.localeCompare(b));
+const DemoSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('demo');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-16" id="demo">
+    <section id="demo" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Spinner Gallery</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {spinnerComponents.map(([name, Component]) => (
-            <SpinnerDemo key={name} name={name} Component={Component} />
+        <h2 className="text-4xl font-bold text-center mb-12">Demo</h2>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          {spinnerComponents.map(({ name, component: Component }) => (
+            <SpinnerCard key={name} name={name} Component={Component} />
           ))}
         </div>
       </div>
@@ -165,27 +135,21 @@ const SpinnersShowcase = () => {
 const Footer = () => (
   <footer className="bg-gray-800 text-white py-8">
     <div className="container mx-auto px-4 text-center">
-      <p>Made with ❤️ by the Sibil Sarjam Soren</p>
+      <p>Made with ❤️ by Sibil Sarjam Soren</p>
       <div className="mt-4">
-        <a href="https://github.com/SibilSoren/spinner-zilla" className="text-gray-400 hover:text-white mx-2">GitHub</a>
-        <a href="https://www.npmjs.com/package/spinner-zilla" className="text-gray-400 hover:text-white mx-2">npm</a>
+        <a href="https://github.com/SibilSoren/spinner-zilla" className="text-gray-400 hover:text-white mx-2 transition-colors duration-200">GitHub</a>
+        <a href="https://www.npmjs.com/package/spinner-zilla" className="text-gray-400 hover:text-white mx-2 transition-colors duration-200">npm</a>
       </div>
     </div>
   </footer>
 );
 
-function App() {
-  return (
-    <Router>
-      <div className="min-h-screen bg-gray-100">
-        <Header />
-        <Features />
-        <Installation />
-        <SpinnersShowcase />
-        <Footer />
-      </div>
-    </Router>
-  );
-}
+const App = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <DemoSection />
+    <Footer />
+  </div>
+);
 
 export default App;
