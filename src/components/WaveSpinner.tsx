@@ -9,24 +9,25 @@ const sizeClasses = {
 };
 
 const barSizeClasses = {
-  sm: 'h-2 w-0.5',
-  md: 'h-3 w-1',
-  lg: 'h-4 w-1.5',
-  xl: 'h-5 w-2',
+  sm: 'w-1',
+  md: 'w-1.5',
+  lg: 'w-2',
+  xl: 'w-2.5',
 };
 
-export const WaveSpinner: React.FC<SpinnerProps> = ({ 
+export const WaveSpinner: React.FC<SpinnerProps> = ({
   size = 'md',
   color = 'text-blue-500',
   className = '',
 }) => {
   return (
-    <div className={`flex items-center justify-between ${sizeClasses[size]} ${className}`}>
+    <div className={`${sizeClasses[size]} flex justify-between items-center ${className}`}>
       {[0, 1, 2].map((index) => (
         <div
           key={index}
-          className={`${barSizeClasses[size]} ${color} bg-current rounded animate-wave`}
+          className={`h-full ${barSizeClasses[size]} ${color} bg-current`}
           style={{
+            animation: 'WaveSpinner 1.2s ease-in-out infinite',
             animationDelay: `${index * 0.15}s`
           }}
         />

@@ -8,57 +8,28 @@ const sizeClasses = {
   xl: 'h-10 w-10',
 };
 
-const handSizeClasses = {
-  sm: 'h-1.5 w-0.5',
-  md: 'h-2.5 w-0.5',
-  lg: 'h-3.5 w-1',
-  xl: 'h-4.5 w-1',
-};
-
-export const ClockSpinner: React.FC<SpinnerProps> = ({ 
+export const ClockSpinner: React.FC<SpinnerProps> = ({
   size = 'md',
   color = 'text-blue-500',
   className = '',
 }) => {
   return (
-    <div 
-      className={`
-        ${sizeClasses[size]}
-        relative
-        rounded-full
-        border-2
-        border-current
-        ${color}
-        ${className}
-      `}
-    >
-      <div 
-        className={`
-          ${handSizeClasses[size]}
-          absolute
-          left-1/2
-          bottom-1/2
-          -translate-x-1/2
-          origin-bottom
-          rounded-full
-          bg-current
-          animate-clock
-        `}
-      />
-      <div 
-        className={`
-          ${handSizeClasses[size]}
-          absolute
-          left-1/2
-          bottom-1/2
-          -translate-x-1/2
-          origin-bottom
-          rounded-full
-          bg-current
-          animate-clock
-        `}
-        style={{ animationDuration: '12s' }}
-      />
+    <div className={`${sizeClasses[size]} relative ${className}`}>
+      <div
+        className={`absolute inset-0 ${color}`}
+        style={{ animation: 'ClockSpinner 2s linear infinite' }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12" cy="12" r="10" stroke="currentColor" fill="none" />
+          <path d="M12 6v6l4 2" />
+        </svg>
+      </div>
     </div>
   );
 };

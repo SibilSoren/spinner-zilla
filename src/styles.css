@@ -223,3 +223,48 @@
     transform: scale(1) rotate(360deg);
   }
 }
+
+@keyframes HeartbeatSpinner {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes StarSpinner {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes WaveSpinner {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes ClockSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

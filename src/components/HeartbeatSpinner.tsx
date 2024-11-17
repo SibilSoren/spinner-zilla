@@ -8,16 +8,19 @@ const sizeClasses = {
   xl: 'h-10 w-10',
 };
 
-export const HeartbeatSpinner: React.FC<SpinnerProps> = ({ 
+export const HeartbeatSpinner: React.FC<SpinnerProps> = ({
   size = 'md',
   color = 'text-blue-500',
   className = '',
 }) => {
   return (
     <div className={`${sizeClasses[size]} relative ${className}`}>
-      <div className={`absolute inset-0 ${color} animate-heartbeat`}>
-        <svg 
-          viewBox="0 0 24 24" 
+      <div
+        className={`absolute inset-0 ${color}`}
+        style={{ animation: 'HeartbeatSpinner 1.2s ease-in-out infinite' }}
+      >
+        <svg
+          viewBox="0 0 24 24"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
