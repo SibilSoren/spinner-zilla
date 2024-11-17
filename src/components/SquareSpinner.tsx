@@ -2,32 +2,37 @@ import React from 'react';
 import { SpinnerProps } from '../types';
 
 const sizeClasses = {
-  sm: 'h-4 w-4',
-  md: 'h-6 w-6',
-  lg: 'h-8 w-8',
-  xl: 'h-10 w-10',
+  sm: 'h-5 w-5',
+  md: 'h-7 w-7',
+  lg: 'h-9 w-9',
+  xl: 'h-11 w-11',
 };
 
 const squareSizeClasses = {
-  sm: 'h-1.5 w-1.5',
+  sm: 'h-2 w-2',
   md: 'h-2.5 w-2.5',
-  lg: 'h-3.5 w-3.5',
-  xl: 'h-4.5 w-4.5',
+  lg: 'h-3 w-3',
+  xl: 'h-4 w-4',
 };
 
-export const SquareSpinner: React.FC<SpinnerProps> = ({ 
+export const SquareSpinner: React.FC<SpinnerProps> = ({
   size = 'md',
   color = 'text-blue-500',
   className = '',
 }) => {
   return (
-    <div className={`grid grid-cols-2 gap-1 ${sizeClasses[size]} ${className}`}>
+    <div className={`${sizeClasses[size]} relative ${className}`}>
       {[0, 1, 2, 3].map((index) => (
         <div
           key={index}
-          className={`${squareSizeClasses[size]} ${color} bg-current rounded animate-square`}
+          className={`absolute ${squareSizeClasses[size]} ${color} bg-current`}
           style={{
-            animationDelay: `${index * 0.15}s`
+            animation: 'squareSpin 2s ease infinite',
+            animationDelay: `${index * 0.2}s`,
+            left: index === 0 || index === 3 ? '0' : '75%',
+            top: index === 0 || index === 1 ? '0' : '75%',
+            transform: `${index === 1 || index === 3 ? 'translateX(-100%)' : ''} ${index === 2 || index === 3 ? 'translateY(-100%)' : ''}`,
+            transformOrigin: '50% 50%'
           }}
         />
       ))}

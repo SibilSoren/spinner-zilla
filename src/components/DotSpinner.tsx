@@ -22,9 +22,18 @@ export const DotSpinner: React.FC<SpinnerProps> = ({
 }) => {
   return (
     <div className={`flex justify-between ${containerSizeClasses[size]} ${className}`}>
-      <div className={`${sizeClasses[size]} rounded-full ${color} animate-bounce [animation-delay:-0.3s]`} />
-      <div className={`${sizeClasses[size]} rounded-full ${color} animate-bounce [animation-delay:-0.15s]`} />
-      <div className={`${sizeClasses[size]} rounded-full ${color} animate-bounce`} />
+      <div 
+        className={`${sizeClasses[size]} rounded-full ${color} bg-current`}
+        style={{ animation: 'dotBounce 0.6s infinite', animationDelay: '-0.3s' }}
+      />
+      <div 
+        className={`${sizeClasses[size]} rounded-full ${color} bg-current`}
+        style={{ animation: 'dotBounce 0.6s infinite', animationDelay: '-0.15s' }}
+      />
+      <div 
+        className={`${sizeClasses[size]} rounded-full ${color} bg-current`}
+        style={{ animation: 'dotBounce 0.6s infinite' }}
+      />
     </div>
   );
 };

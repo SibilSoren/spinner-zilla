@@ -25,8 +25,11 @@ export const MatrixSpinner: React.FC<SpinnerProps> = ({
       {[...Array(gridSize * gridSize)].map((_, i) => (
         <div 
           key={i}
-          className="flex items-center justify-center text-[0.5em] font-bold animate-matrix"
-          style={{ animationDelay: `${i * 0.1}s` }}
+          className="flex items-center justify-center text-[0.5em] font-bold"
+          style={{
+            animation: 'matrixChar 2s infinite',
+            animationDelay: `${i * 0.2}s`
+          }}
         >
           {matrixChars[Math.floor(Math.random() * matrixChars.length)]}
         </div>

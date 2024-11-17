@@ -25,9 +25,13 @@ export const GalaxySpinner: React.FC<SpinnerProps> = ({
       {[0, 1, 2].map((orbit) => (
         <div
           key={orbit}
-          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${orbitSizeClasses[size][orbit]} rounded-full ${color} opacity-${100 - orbit * 30} animate-galaxy`}
+          className={`absolute left-1/2 top-1/2 border-2 border-current rounded-full ${orbitSizeClasses[size][orbit]} ${color}`}
           style={{
-            animationDelay: `${orbit * 0.2}s`
+            opacity: 1 - orbit * 0.2,
+            animation: `galaxyOrbit ${2 + orbit}s linear infinite`,
+            transform: 'translate(-50%, -50%) rotate(0deg)',
+            borderLeftColor: 'transparent',
+            borderBottomColor: 'transparent'
           }}
         />
       ))}

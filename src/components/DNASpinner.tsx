@@ -25,19 +25,21 @@ export const DNASpinner: React.FC<SpinnerProps> = ({
       {[...Array(8)].map((_, i) => (
         <React.Fragment key={i}>
           <div
-            className={`absolute ${dotSizeClasses[size]} ${color} rounded-full animate-dna`}
+            className={`absolute ${dotSizeClasses[size]} ${color} rounded-full bg-current`}
             style={{
               top: `${(i / 8) * 100}%`,
               left: '0',
-              animationDelay: `${i * 0.1}s`
+              animation: 'dnaLeft 1.5s infinite',
+              animationDelay: `${i * 0.15}s`
             }}
           />
           <div
-            className={`absolute ${dotSizeClasses[size]} ${color} rounded-full animate-dna`}
+            className={`absolute ${dotSizeClasses[size]} ${color} rounded-full bg-current`}
             style={{
               top: `${(i / 8) * 100}%`,
               right: '0',
-              animationDelay: `${i * 0.1 + 0.5}s`
+              animation: 'dnaRight 1.5s infinite',
+              animationDelay: `${i * 0.15}s`
             }}
           />
         </React.Fragment>
