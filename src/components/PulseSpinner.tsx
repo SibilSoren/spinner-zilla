@@ -19,15 +19,29 @@ export const PulseSpinner: React.FC<PulseSpinnerProps> = ({
   className = '',
 }) => {
   return (
-    <div 
-      className={`
-        ${sizeMap[size]}
-        rounded-full
-        ${color}
-        animate-pulse
-        ${className}
-      `}
-    />
+    <div className="relative inline-flex">
+      <div 
+        className={`
+          ${sizeMap[size]}
+          rounded-full
+          bg-current
+          ${color}
+          animate-[pulse_1s_cubic-bezier(0,0,0.2,1)_infinite]
+        `}
+      />
+      <div 
+        className={`
+          ${sizeMap[size]}
+          rounded-full
+          bg-current
+          ${color}
+          absolute
+          inset-0
+          animate-[ping_1s_cubic-bezier(0,0,0.2,1)_infinite]
+        `}
+        style={{ animationDelay: '0.5s' }}
+      />
+    </div>
   );
 };
 

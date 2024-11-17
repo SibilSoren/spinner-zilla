@@ -5,6 +5,8 @@ module.exports = {
     'animate-[galaxySpin_3s_linear_infinite]',
     'animate-[galaxySpin_4s_linear_infinite]',
     'animate-[galaxySpin_5s_linear_infinite]',
+    'animate-[pulse_1s_cubic-bezier(0,0,0.2,1)_infinite]',
+    'animate-[ping_1s_cubic-bezier(0,0,0.2,1)_infinite]'
   ],
   theme: {
     extend: {
@@ -33,11 +35,12 @@ module.exports = {
           '100%': { transform: 'rotate(360deg)' },
         },
         ping: {
+          '0%': { transform: 'scale(1)', opacity: '0.75' },
           '75%, 100%': { transform: 'scale(2)', opacity: '0' },
         },
         pulse: {
-          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-          '50%': { transform: 'scale(0.5)', opacity: '0.5' },
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.75' },
+          '50%': { transform: 'scale(0.95)', opacity: '0.5' },
         },
         heartbeat: {
           '0%': { transform: 'scale(0.8)' },
