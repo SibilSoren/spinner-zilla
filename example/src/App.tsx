@@ -49,6 +49,7 @@ const Header = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto">
           <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
             <div className="mb-8">
+            
               <h1 className="text-6xl lg:text-7xl font-bold mb-2 tracking-tight">
                 <span className="inline-block transform hover:scale-105 transition-transform duration-200 cursor-default">
                   Spinner
