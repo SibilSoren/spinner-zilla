@@ -28,13 +28,13 @@ export default {
     typescript({ tsconfig: './tsconfig.json' }),
     postcss({
       config: {
-        path: './postcss.config.js',
+        path: './postcss.config.cjs',
       },
-      extensions: ['.css'],
+      extract: true,
+      modules: false,
+      use: ['sass'],
       minimize: true,
-      inject: {
-        insertAt: 'top',
-      },
     }),
   ],
+  external: ['react', 'react-dom'],
 };
