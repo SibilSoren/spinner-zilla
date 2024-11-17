@@ -39,8 +39,12 @@ This package has the following peer dependencies:
 
 ## 📖 Usage
 
-1. Import your desired spinner component:
+1. Import the CSS and your desired spinner component:
 ```jsx
+// Import the CSS (important!)
+import 'spinner-zilla/dist/index.css';
+
+// Import your desired components
 import { CircleSpinner, RingSpinner, WaveSpinner } from 'spinner-zilla';
 ```
 
@@ -55,6 +59,8 @@ function LoadingState() {
   );
 }
 ```
+
+> ⚠️ **Important**: Make sure to import the CSS file to enable all animations and styles.
 
 ## 🎨 Available Components
 
@@ -92,6 +98,7 @@ All spinner components accept the following props:
 
 ### Basic Usage
 ```jsx
+import 'spinner-zilla/dist/index.css';
 import { CircleSpinner } from 'spinner-zilla';
 
 <CircleSpinner />  // Uses default props
@@ -99,6 +106,7 @@ import { CircleSpinner } from 'spinner-zilla';
 
 ### Custom Size and Color
 ```jsx
+import 'spinner-zilla/dist/index.css';
 import { RingSpinner } from 'spinner-zilla';
 
 <RingSpinner 
@@ -109,6 +117,7 @@ import { RingSpinner } from 'spinner-zilla';
 
 ### Custom Styling with className
 ```jsx
+import 'spinner-zilla/dist/index.css';
 import { WaveSpinner } from 'spinner-zilla';
 
 <WaveSpinner 
@@ -120,6 +129,7 @@ import { WaveSpinner } from 'spinner-zilla';
 
 ### Multiple Spinners
 ```jsx
+import 'spinner-zilla/dist/index.css';
 import { DotSpinner, StarSpinner } from 'spinner-zilla';
 
 <div className="flex gap-4">
@@ -153,6 +163,12 @@ npm run storybook
 ```bash
 npm run build
 ```
+
+The build process will:
+- Generate the JavaScript bundle in the `dist` directory
+- Extract and process all CSS including Tailwind utilities
+- Create TypeScript declaration files
+- Bundle all animations and styles into `dist/index.css`
 
 ## 🧪 Testing
 
