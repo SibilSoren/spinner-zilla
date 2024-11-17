@@ -15,12 +15,6 @@ const orbitSizeClasses = {
   xl: ['h-10 w-10', 'h-8 w-8', 'h-6 w-6'],
 };
 
-const orbitAnimationClasses = [
-  'animate-[galaxySpin_3s_linear_infinite]',
-  'animate-[galaxySpin_4s_linear_infinite]',
-  'animate-[galaxySpin_5s_linear_infinite]',
-];
-
 export const GalaxySpinner: React.FC<SpinnerProps> = ({ 
   size = 'md',
   color = 'text-blue-500',
@@ -31,33 +25,11 @@ export const GalaxySpinner: React.FC<SpinnerProps> = ({
       {[0, 1, 2].map((orbit) => (
         <div
           key={orbit}
-          className={`
-            absolute 
-            top-1/2 
-            left-1/2 
-            -translate-x-1/2 
-            -translate-y-1/2
-            ${orbitSizeClasses[size][orbit]}
-            rounded-full 
-            border 
-            border-current 
-            ${color}
-            ${orbitAnimationClasses[orbit]}
-          `}
-        >
-          <div
-            className={`
-              absolute 
-              -top-0.5 
-              left-1/2 
-              h-1 
-              w-1 
-              -translate-x-1/2 
-              rounded-full 
-              bg-current
-            `}
-          />
-        </div>
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${orbitSizeClasses[size][orbit]} rounded-full ${color} opacity-${100 - orbit * 30} animate-galaxy`}
+          style={{
+            animationDelay: `${orbit * 0.2}s`
+          }}
+        />
       ))}
     </div>
   );

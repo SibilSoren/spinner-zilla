@@ -21,18 +21,14 @@ export const WaveSpinner: React.FC<SpinnerProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`flex items-center ${sizeClasses[size]} ${className}`}>
+    <div className={`flex items-center justify-between ${sizeClasses[size]} ${className}`}>
       {[0, 1, 2].map((index) => (
         <div
           key={index}
-          className={`
-            ${barSizeClasses[size]}
-            ${color}
-            bg-current
-            mx-0.5
-            animate-wave
-            [animation-delay:${index * 0.15}s]
-          `}
+          className={`${barSizeClasses[size]} ${color} bg-current rounded animate-wave`}
+          style={{
+            animationDelay: `${index * 0.15}s`
+          }}
         />
       ))}
     </div>

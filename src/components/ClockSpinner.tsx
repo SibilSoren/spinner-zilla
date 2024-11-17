@@ -32,7 +32,7 @@ export const ClockSpinner: React.FC<SpinnerProps> = ({
         ${className}
       `}
     >
-      <div
+      <div 
         className={`
           ${handSizeClasses[size]}
           absolute
@@ -40,11 +40,12 @@ export const ClockSpinner: React.FC<SpinnerProps> = ({
           bottom-1/2
           -translate-x-1/2
           origin-bottom
+          rounded-full
           bg-current
-          animate-clockSpin
+          animate-clock
         `}
       />
-      <div
+      <div 
         className={`
           ${handSizeClasses[size]}
           absolute
@@ -52,9 +53,11 @@ export const ClockSpinner: React.FC<SpinnerProps> = ({
           bottom-1/2
           -translate-x-1/2
           origin-bottom
+          rounded-full
           bg-current
-          animate-[clockSpin_12s_linear_infinite]
+          animate-clock
         `}
+        style={{ animationDuration: '12s' }}
       />
     </div>
   );

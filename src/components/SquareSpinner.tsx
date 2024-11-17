@@ -25,13 +25,10 @@ export const SquareSpinner: React.FC<SpinnerProps> = ({
       {[0, 1, 2, 3].map((index) => (
         <div
           key={index}
-          className={`
-            ${squareSizeClasses[size]}
-            ${color}
-            bg-current
-            animate-squarePulse
-            [animation-delay:${index * 0.15}s]
-          `}
+          className={`${squareSizeClasses[size]} ${color} bg-current rounded animate-square`}
+          style={{
+            animationDelay: `${index * 0.15}s`
+          }}
         />
       ))}
     </div>

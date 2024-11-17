@@ -15,7 +15,7 @@ export const StarSpinner: React.FC<SpinnerProps> = ({
 }) => {
   return (
     <div className={`${sizeClasses[size]} relative ${className}`}>
-      <div className={`absolute inset-0 ${color} animate-spin-slow`}>
+      <div className={`absolute inset-0 ${color} animate-star`}>
         <svg 
           viewBox="0 0 24 24" 
           fill="currentColor"

@@ -15,14 +15,7 @@ export const HeartbeatSpinner: React.FC<SpinnerProps> = ({
 }) => {
   return (
     <div className={`${sizeClasses[size]} relative ${className}`}>
-      <div 
-        className={`
-          absolute 
-          inset-0 
-          ${color} 
-          animate-[heartbeat_1.5s_ease-in-out_infinite]
-        `}
-      >
+      <div className={`absolute inset-0 ${color} animate-heartbeat`}>
         <svg 
           viewBox="0 0 24 24" 
           fill="currentColor"

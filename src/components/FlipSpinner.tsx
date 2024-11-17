@@ -14,15 +14,8 @@ export const FlipSpinner: React.FC<SpinnerProps> = ({
   className = '',
 }) => {
   return (
-    <div 
-      className={`
-        ${sizeClasses[size]}
-        ${color}
-        animate-flip
-        ${className}
-      `}
-    >
-      <div className="h-full w-full bg-current" />
+    <div className={`${sizeClasses[size]} ${color} ${className}`}>
+      <div className="h-full w-full bg-current rounded animate-flip" />
     </div>
   );
 };

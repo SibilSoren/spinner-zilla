@@ -2,92 +2,84 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   safelist: [
-    'animate-[galaxySpin_3s_linear_infinite]',
-    'animate-[galaxySpin_4s_linear_infinite]',
-    'animate-[galaxySpin_5s_linear_infinite]',
-    'animate-[pulse_1s_cubic-bezier(0,0,0.2,1)_infinite]',
-    'animate-[ping_1s_cubic-bezier(0,0,0.2,1)_infinite]'
+    'animate-spin',
+    'animate-pulse',
+    'animate-wave',
+    'animate-flip',
+    'animate-matrix',
+    'animate-galaxy',
+    'animate-heartbeat',
+    'animate-dna',
+    'animate-clock',
+    'animate-star',
+    'animate-square'
   ],
   theme: {
     extend: {
+      animation: {
+        'spin': 'spin 1s linear infinite',
+        'pulse': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'wave': 'wave 1.5s ease-in-out infinite',
+        'flip': 'flip 2s linear infinite',
+        'matrix': 'matrix 2s linear infinite',
+        'galaxy': 'galaxy 3s linear infinite',
+        'heartbeat': 'heartbeat 1s ease-in-out infinite',
+        'dna': 'dna 3s linear infinite',
+        'clock': 'clock 2s linear infinite',
+        'star': 'star 2s linear infinite',
+        'square': 'square 2s linear infinite'
+      },
       keyframes: {
-        flip: {
-          '0%': { transform: 'rotateX(0deg) rotateY(0deg)' },
-          '25%': { transform: 'rotateX(180deg) rotateY(0deg)' },
-          '50%': { transform: 'rotateX(180deg) rotateY(180deg)' },
-          '75%': { transform: 'rotateX(0deg) rotateY(180deg)' },
-          '100%': { transform: 'rotateX(0deg) rotateY(0deg)' },
+        spin: {
+          'to': { transform: 'rotate(360deg)' }
+        },
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' }
         },
         wave: {
           '0%, 100%': { transform: 'scaleY(1)' },
-          '50%': { transform: 'scaleY(0.5)' },
+          '50%': { transform: 'scaleY(0.5)' }
         },
-        clockSpin: {
-          'from': { transform: 'rotate(0deg)' },
-          'to': { transform: 'rotate(360deg)' },
+        flip: {
+          '0%': { transform: 'perspective(400px) rotateY(0)' },
+          '100%': { transform: 'perspective(400px) rotateY(360deg)' }
         },
-        squarePulse: {
-          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-          '50%': { transform: 'scale(0.5)', opacity: '0.5' },
+        matrix: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-100%)' }
         },
-        spin: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
-        },
-        ping: {
-          '0%': { transform: 'scale(1)', opacity: '0.75' },
-          '75%, 100%': { transform: 'scale(2)', opacity: '0' },
-        },
-        pulse: {
-          '0%, 100%': { transform: 'scale(1)', opacity: '0.75' },
-          '50%': { transform: 'scale(0.95)', opacity: '0.5' },
+        galaxy: {
+          '0%': { transform: 'rotate(0) scale(1)' },
+          '50%': { transform: 'rotate(180deg) scale(1.5)' },
+          '100%': { transform: 'rotate(360deg) scale(1)' }
         },
         heartbeat: {
-          '0%': { transform: 'scale(0.8)' },
-          '5%': { transform: 'scale(0.9)' },
-          '10%': { transform: 'scale(0.8)' },
-          '15%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(0.8)' },
-          '100%': { transform: 'scale(0.8)' },
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.2)' }
         },
-        dnaLeft: {
-          '0%': { transform: 'translateX(0) scale(1)' },
-          '25%': { transform: 'translateX(100%) scale(0.5)' },
-          '50%': { transform: 'translateX(0) scale(1)' },
-          '75%': { transform: 'translateX(100%) scale(0.5)' },
-          '100%': { transform: 'translateX(0) scale(1)' },
+        dna: {
+          '0%': { transform: 'rotate(0) translateX(0)' },
+          '50%': { transform: 'rotate(180deg) translateX(100%)' },
+          '100%': { transform: 'rotate(360deg) translateX(0)' }
         },
-        dnaRight: {
-          '0%': { transform: 'translateX(0) scale(0.5)' },
-          '25%': { transform: 'translateX(-100%) scale(1)' },
-          '50%': { transform: 'translateX(0) scale(0.5)' },
-          '75%': { transform: 'translateX(-100%) scale(1)' },
-          '100%': { transform: 'translateX(0) scale(0.5)' },
+        clock: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
         },
-        galaxySpin: {
-          'from': { transform: 'translate(-50%, -50%) rotate(0deg)' },
-          'to': { transform: 'translate(-50%, -50%) rotate(360deg)' },
+        star: {
+          '0%': { transform: 'rotate(0deg) scale(1)' },
+          '50%': { transform: 'rotate(180deg) scale(1.5)' },
+          '100%': { transform: 'rotate(360deg) scale(1)' }
         },
-        matrixChar: {
-          '0%, 100%': { opacity: '0.3' },
-          '50%': { opacity: '1' },
-        },
-      },
-      animation: {
-        'spin-slow': 'spin 3s linear infinite',
-        'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'pulse-slow': 'pulse 3s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'flip': 'flip 2s infinite',
-        'wave': 'wave 1s ease-in-out infinite',
-        'clockSpin': 'clockSpin 2s linear infinite',
-        'squarePulse': 'squarePulse 1.5s ease-in-out infinite',
-        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
-        'dnaLeft': 'dnaLeft 1.5s infinite',
-        'dnaRight': 'dnaRight 1.5s infinite',
-        'galaxySpin': 'galaxySpin 3s linear infinite',
-        'matrixChar': 'matrixChar 2s infinite',
-      },
-    },
+        square: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(90deg)' },
+          '50%': { transform: 'rotate(180deg)' },
+          '75%': { transform: 'rotate(270deg)' }
+        }
+      }
+    }
   },
   plugins: [],
 };
