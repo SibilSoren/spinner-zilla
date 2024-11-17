@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import * as Spinners from 'spinner-zilla';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import 'spinner-zilla/styles.css';
+
+// Lazy load components
+const SyntaxHighlighter = React.lazy(() => import('react-syntax-highlighter/dist/esm/prism').then(module => ({ 
+  default: module.Prism 
+}))) as unknown as typeof import('react-syntax-highlighter/dist/esm/prism').Prism;
+const tomorrow = React.lazy(() => import('react-syntax-highlighter/dist/esm/styles/prism').then(module => ({
+  default: module.tomorrow
+})));
 
 const colors = [
   'text-blue-500',
@@ -33,13 +39,43 @@ const Header = () => (
   </header>
 );
 
+const Features = () => (
+  <section className="py-16 bg-white">
+    <div className="container mx-auto px-4">
+      <h2 className="text-3xl font-bold mb-12 text-center">Features</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="text-center p-6">
+          <div className="text-4xl mb-4">🎨</div>
+          <h3 className="text-xl font-semibold mb-2">Customizable</h3>
+          <p className="text-gray-600">Easily customize colors, sizes, and animations to match your design</p>
+        </div>
+        <div className="text-center p-6">
+          <div className="text-4xl mb-4">📱</div>
+          <h3 className="text-xl font-semibold mb-2">Responsive</h3>
+          <p className="text-gray-600">Four sizes (sm, md, lg, xl) for perfect fit on any screen</p>
+        </div>
+        <div className="text-center p-6">
+          <div className="text-4xl mb-4">⚡</div>
+          <h3 className="text-xl font-semibold mb-2">Lightweight</h3>
+          <p className="text-gray-600">Zero dependencies except React and minimal bundle size</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Installation = () => {
   const npmInstall = 'npm install spinner-zilla';
   const usage = `import { CircleSpinner } from 'spinner-zilla';
-import 'spinner-zilla/styles.css';
+import 'spinner-zilla/styles.css';  // Don't forget to import styles!
 
 function App() {
-  return <CircleSpinner size="md" color="text-blue-500" />;
+  return (
+    <div className="flex space-x-4">
+      <CircleSpinner size="md" color="text-blue-500" />
+      <PulseSpinner size="lg" color="text-purple-500" />
+    </div>
+  );
 }`;
 
   return (
@@ -47,13 +83,20 @@ function App() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Installation</h2>
         <div className="max-w-2xl mx-auto">
-          <SyntaxHighlighter language="bash" style={tomorrow} className="rounded-lg">
-            {npmInstall}
-          </SyntaxHighlighter>
+          <Suspense fallback={<div className="animate-pulse bg-gray-200 h-12 rounded-lg mb-8" />}>
+            <SyntaxHighlighter language="bash" style={tomorrow} className="rounded-lg mb-8">
+              {npmInstall}
+            </SyntaxHighlighter>
+          </Suspense>
           <h3 className="text-xl font-semibold mt-8 mb-4">Usage</h3>
-          <SyntaxHighlighter language="jsx" style={tomorrow} className="rounded-lg">
-            {usage}
-          </SyntaxHighlighter>
+          <div className="bg-gray-800 text-gray-300 p-4 rounded-lg mb-4">
+            ⚠️ Important: Always import the CSS file to enable animations!
+          </div>
+          <Suspense fallback={<div className="animate-pulse bg-gray-200 h-48 rounded-lg" />}>
+            <SyntaxHighlighter language="jsx" style={tomorrow} className="rounded-lg">
+              {usage}
+            </SyntaxHighlighter>
+          </Suspense>
         </div>
       </div>
     </section>
@@ -67,7 +110,7 @@ const SpinnerDemo = ({ name, Component }: { name: string; Component: any }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-lg font-semibold mb-4">{name}</h3>
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center items-center h-24 mb-4 bg-gray-50 rounded-lg">
         <Component color={color} size={size} />
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -101,7 +144,9 @@ const SpinnerDemo = ({ name, Component }: { name: string; Component: any }) => {
 };
 
 const SpinnersShowcase = () => {
-  const spinnerComponents = Object.entries(Spinners).filter(([name]) => name.endsWith('Spinner'));
+  const spinnerComponents = Object.entries(Spinners)
+    .filter(([name]) => name.endsWith('Spinner'))
+    .sort(([a], [b]) => a.localeCompare(b));
 
   return (
     <section className="py-16" id="demo">
@@ -134,6 +179,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-100">
         <Header />
+        <Features />
         <Installation />
         <SpinnersShowcase />
         <Footer />
