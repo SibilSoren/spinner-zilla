@@ -4,9 +4,9 @@ import * as Spinners from 'spinner-zilla';
 import 'spinner-zilla/styles.css';
 
 // Lazy load components
-const SyntaxHighlighter = React.lazy(() => import('react-syntax-highlighter/dist/esm/prism').then(module => ({ 
+const SyntaxHighlighter = React.lazy(() => import('react-syntax-highlighter').then(module => ({ 
   default: module.Prism 
-}))) as unknown as typeof import('react-syntax-highlighter/dist/esm/prism').Prism;
+})));
 const tomorrow = React.lazy(() => import('react-syntax-highlighter/dist/esm/styles/prism').then(module => ({
   default: module.tomorrow
 })));
