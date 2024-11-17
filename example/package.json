@@ -1,16 +1,19 @@
 {
-  "name": "spinner-zilla-example",
+  "name": "spinner-zilla-docs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "spinner-zilla": "file:..",
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
