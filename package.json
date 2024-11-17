@@ -8,6 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/SibilSoren/spinner-zilla.git"
   },
+  "homepage": "https://sibilsoren.github.io/spinner-zilla/",
   "keywords": [
     "react",
     "spinner",
