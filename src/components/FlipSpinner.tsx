@@ -8,14 +8,20 @@ const sizeClasses = {
   xl: 'h-10 w-10',
 };
 
-export const FlipSpinner: React.FC<SpinnerProps> = ({ 
+export const FlipSpinner: React.FC<SpinnerProps> = ({
   size = 'md',
   color = 'text-blue-500',
   className = '',
 }) => {
   return (
-    <div className={`${sizeClasses[size]} ${color} ${className}`}>
-      <div className="h-full w-full bg-current rounded animate-flip" />
+    <div className={`${sizeClasses[size]} relative ${className}`}>
+      <div
+        className={`h-full w-full rounded ${color} bg-current`}
+        style={{
+          animation: 'FlipSpinner 1.5s linear infinite',
+          transformStyle: 'preserve-3d'
+        }}
+      />
     </div>
   );
 };
