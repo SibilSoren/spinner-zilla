@@ -48,27 +48,50 @@ const Header = () => {
       <div className={`container mx-auto px-4 relative transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto">
           <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Beautiful Loading <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-400">
-                Animations
-              </span>
-            </h1>
-            <p className="text-xl mb-8 text-gray-100 max-w-lg">
-              A collection of 12 stunning, customizable React spinners for your next project.
+            <div className="mb-8">
+              <h1 className="text-6xl lg:text-7xl font-bold mb-2 tracking-tight">
+                <span className="inline-block transform hover:scale-105 transition-transform duration-200 cursor-default">
+                  Spinner
+                </span>
+                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-400 transform hover:scale-105 transition-transform duration-200 cursor-default ml-1">
+                  Zilla
+                </span>
+              </h1>
+              <div className="flex items-center justify-center lg:justify-start space-x-3 mt-2">
+                <span className="px-3 py-1 bg-purple-700 bg-opacity-50 rounded-full text-sm font-semibold backdrop-blur-sm border border-purple-400/30">
+                  v0.1.0
+                </span>
+                <span className="px-3 py-1 bg-blue-700 bg-opacity-50 rounded-full text-sm font-semibold backdrop-blur-sm border border-blue-400/30">
+                  React
+                </span>
+              </div>
+            </div>
+            <p className="text-xl mb-8 text-gray-100 max-w-lg leading-relaxed">
+              A collection of <span className="font-semibold text-yellow-300">12 stunning</span>, customizable React spinners for your next project.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <a 
                 href="#installation" 
-                className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 hover:shadow-lg"
+                className="group bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 hover:shadow-lg flex items-center space-x-2"
               >
-                Get Started
+                <span>Get Started</span>
+                <svg 
+                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </a>
               <a 
                 href="https://github.com/SibilSoren/spinner-zilla" 
-                className="bg-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 hover:shadow-lg"
+                className="group bg-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 hover:shadow-lg flex items-center space-x-2"
               >
-                GitHub
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.137 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
+                </svg>
+                <span>GitHub</span>
               </a>
             </div>
           </div>
@@ -77,7 +100,7 @@ const Header = () => {
           <div className="lg:w-1/2 flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-              <div className="relative bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
+              <div className="relative bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20">
                 <GalaxySpinner size="xl" color="text-white" />
               </div>
             </div>
