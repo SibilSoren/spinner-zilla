@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import * as Spinners from 'spinner-zilla';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import 'spinner-zilla/styles.css';
 
 const colors = [
   'text-blue-500',
@@ -35,7 +36,7 @@ const Header = () => (
 const Installation = () => {
   const npmInstall = 'npm install spinner-zilla';
   const usage = `import { CircleSpinner } from 'spinner-zilla';
-import 'spinner-zilla/dist/index.css';
+import 'spinner-zilla/styles.css';
 
 function App() {
   return <CircleSpinner size="md" color="text-blue-500" />;

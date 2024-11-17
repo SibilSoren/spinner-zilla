@@ -8,7 +8,10 @@ export default defineConfig({
   base: '/spinner-zilla/',
   resolve: {
     alias: {
-      'spinner-zilla': path.resolve(__dirname, '../dist')
+      'spinner-zilla': path.resolve(__dirname, '../src')
     }
+  },
+  optimizeDeps: {
+    include: ['spinner-zilla']
   }
 })

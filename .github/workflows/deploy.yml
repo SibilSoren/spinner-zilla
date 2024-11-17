@@ -24,12 +24,18 @@ jobs:
           node-version: '18'
           cache: 'npm'
           
-      - name: Install Dependencies
+      - name: Install Main Package Dependencies
+        run: npm install
+          
+      - name: Build Main Package
+        run: npm run build
+          
+      - name: Install Example Dependencies
         run: |
           cd example
           npm install
           
-      - name: Build
+      - name: Build Example
         run: |
           cd example
           npm run build
