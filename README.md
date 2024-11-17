@@ -8,7 +8,7 @@ A comprehensive React spinner library featuring 13 beautiful, customizable loadi
 
 ## ✨ Features
 
-- 🎨 13 unique, customizable spinner components
+- 🎨 12 unique, customizable spinner components
 - 📱 Responsive sizing (sm, md, lg, xl)
 - 🎯 Built with TypeScript for type safety
 - 🌈 Tailwind CSS integration
@@ -65,18 +65,17 @@ function LoadingState() {
 ## 🎨 Available Components
 
 1. **CircleSpinner**: Simple circular loading animation
-2. **PulseSpinner**: Pulsating circle effect
-3. **RingSpinner**: Rotating ring with customizable thickness
-4. **DotSpinner**: Multiple dots in sequence
-5. **FlipSpinner**: 3D flipping animation
-6. **WaveSpinner**: Wave-like loading bars
-7. **ClockSpinner**: Clock hands rotation effect
-8. **SquareSpinner**: Rotating square pattern
-9. **StarSpinner**: Spinning star animation
-10. **HeartbeatSpinner**: Heartbeat pulse effect
-11. **DNASpinner**: DNA helix animation
-12. **GalaxySpinner**: Galaxy spiral effect
-13. **MatrixSpinner**: Matrix-style number animation
+2. **ClockSpinner**: Clock-like spinner with rotating hands
+3. **DNASpinner**: DNA helix-inspired loading animation
+4. **DotSpinner**: Multiple dots with bouncing animation
+5. **FlipSpinner**: 3D flipping animation effect
+6. **GalaxySpinner**: Orbital rings with rotating planets
+7. **HeartbeatSpinner**: Pulsating heart animation
+8. **MatrixSpinner**: Matrix-inspired digital rain effect
+9. **PulseSpinner**: Pulsating circle effect
+10. **SquareSpinner**: Multiple squares with rotation
+11. **StarSpinner**: Rotating and scaling star animation
+12. **WaveSpinner**: Multiple bars with wave animation
 
 ## ⚙️ Props
 
@@ -146,7 +145,7 @@ Visit our [Storybook](https://your-storybook-url.com) to see all spinners in act
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/spinner-zilla.git
+git clone https://github.com/SibilSoren/spinner-zilla.git
 ```
 
 2. Install dependencies:
@@ -200,6 +199,6 @@ MIT
 ## 🤝 Support
 
 Need help? Feel free to:
-- Open an [issue](https://github.com/your-username/spinner-zilla/issues)
-- Contact us at [your-email@example.com]
-- Join our [Discord community](https://discord.gg/your-server)
+- Open an [issue](https://github.com/SibilSoren/spinner-zilla/issues)
+- Contact us at [soren.sibilsarjam@gmail.com]
+<!-- - Join our [Discord community](https://discord.gg/your-server) -->

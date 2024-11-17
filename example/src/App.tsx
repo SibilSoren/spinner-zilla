@@ -165,9 +165,9 @@ const SpinnersShowcase = () => {
 const Footer = () => (
   <footer className="bg-gray-800 text-white py-8">
     <div className="container mx-auto px-4 text-center">
-      <p>Made with ❤️ by the Spinner-Zilla team</p>
+      <p>Made with ❤️ by the Sibil Sarjam Soren</p>
       <div className="mt-4">
-        <a href="https://github.com/yourusername/spinner-zilla" className="text-gray-400 hover:text-white mx-2">GitHub</a>
+        <a href="https://github.com/SibilSoren/spinner-zilla" className="text-gray-400 hover:text-white mx-2">GitHub</a>
         <a href="https://www.npmjs.com/package/spinner-zilla" className="text-gray-400 hover:text-white mx-2">npm</a>
       </div>
     </div>

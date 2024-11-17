@@ -1,17 +1,35 @@
 {
   "name": "spinner-zilla",
   "version": "0.1.0",
+  "description": "A beautiful collection of animated loading spinners for React applications",
+  "author": "Sibil Sarjam Soren <soren.sibilsarjam@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SibilSoren/spinner-zilla.git"
+  },
+  "keywords": [
+    "react",
+    "spinner",
+    "loading",
+    "animation",
+    "ui",
+    "component",
+    "tailwindcss"
+  ],
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "rollup -c",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -44,7 +62,8 @@
     "vite": "^5.0.10"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "tailwindcss": ">=3.0.0"
   }
 }
