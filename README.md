@@ -17,6 +17,11 @@ A comprehensive React spinner library featuring 13 beautiful, customizable loadi
 - 📖 Comprehensive Storybook documentation
 - ♿ Accessibility-friendly
 
+## 📚 Documentation
+
+Visit our interactive Storybook documentation to explore all components and their variations:
+[Spinner-Zilla Storybook](https://sibilsoren.github.io/spinner-zilla/)
+
 ## 🚀 Installation
 
 ```bash
@@ -77,6 +82,8 @@ function LoadingState() {
 11. **StarSpinner**: Rotating and scaling star animation
 12. **WaveSpinner**: Multiple bars with wave animation
 
+For detailed examples and live previews of each component, visit our [Storybook documentation](https://sibilsoren.github.io/spinner-zilla/).
+
 ## ⚙️ Props
 
 All spinner components accept the following props:
@@ -100,105 +107,54 @@ All spinner components accept the following props:
 import 'spinner-zilla/dist/index.css';
 import { CircleSpinner } from 'spinner-zilla';
 
-<CircleSpinner />  // Uses default props
+function App() {
+  return <CircleSpinner size="lg" color="text-blue-500" />;
+}
 ```
 
-### Custom Size and Color
-```jsx
-import 'spinner-zilla/dist/index.css';
-import { RingSpinner } from 'spinner-zilla';
-
-<RingSpinner 
-  size="lg"
-  color="text-purple-500" 
-/>
-```
-
-### Custom Styling with className
+### Multiple Sizes
 ```jsx
 import 'spinner-zilla/dist/index.css';
 import { WaveSpinner } from 'spinner-zilla';
 
-<WaveSpinner 
-  size="xl"
-  color="text-green-500"
-  className="p-4 bg-gray-100 rounded-lg shadow-inner" 
-/>
+function LoadingStates() {
+  return (
+    <div className="flex items-center gap-4">
+      <WaveSpinner size="sm" color="text-purple-500" />
+      <WaveSpinner size="md" color="text-purple-500" />
+      <WaveSpinner size="lg" color="text-purple-500" />
+      <WaveSpinner size="xl" color="text-purple-500" />
+    </div>
+  );
+}
 ```
 
-### Multiple Spinners
+### Custom Colors
 ```jsx
 import 'spinner-zilla/dist/index.css';
-import { DotSpinner, StarSpinner } from 'spinner-zilla';
+import { StarSpinner } from 'spinner-zilla';
 
-<div className="flex gap-4">
-  <DotSpinner size="sm" color="text-blue-500" />
-  <StarSpinner size="md" color="text-yellow-500" />
-</div>
+function CustomColorSpinner() {
+  return (
+    <div className="flex items-center gap-4">
+      <StarSpinner size="lg" color="text-emerald-500" />
+      <StarSpinner size="lg" color="text-pink-500" />
+      <StarSpinner size="lg" color="text-amber-500" />
+    </div>
+  );
+}
 ```
 
-## 🎮 Interactive Demo
+## 🤝 Contributing
 
-Visit our [Storybook](https://your-storybook-url.com) to see all spinners in action and try different configurations.
+We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-## 🛠️ Development
+## 📝 License
 
-1. Clone the repository:
-```bash
-git clone https://github.com/SibilSoren/spinner-zilla.git
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-2. Install dependencies:
-```bash
-npm install
-```
+## 📬 Contact & Support
 
-3. Start Storybook for development:
-```bash
-npm run storybook
-```
-
-4. Build the library:
-```bash
-npm run build
-```
-
-The build process will:
-- Generate the JavaScript bundle in the `dist` directory
-- Extract and process all CSS including Tailwind utilities
-- Create TypeScript declaration files
-- Bundle all animations and styles into `dist/index.css`
-
-## 🧪 Testing
-
-Run the test suite:
-```bash
-npm test
-```
-
-## 📝 Contributing
-
-Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTING.md) to get started.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-spinner`)
-3. Commit your changes (`git commit -m 'Add amazing spinner'`)
-4. Push to the branch (`git push origin feature/amazing-spinner`)
-5. Open a Pull Request
-
-## 📄 License
-
-MIT 
-
-## 🙏 Credits
-
-- Inspired by various loading animations from the web
-- Built with [React](https://reactjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
-- Documentation powered by [Storybook](https://storybook.js.org/)
-
-## 🤝 Support
-
-Need help? Feel free to:
-- Open an [issue](https://github.com/SibilSoren/spinner-zilla/issues)
-- Contact us at [soren.sibilsarjam@gmail.com]
-<!-- - Join our [Discord community](https://discord.gg/your-server) -->
+- Report issues on [GitHub](https://github.com/SibilSoren/spinner-zilla/issues)
+- Contact us at soren.sibilsarjam@gmail.com
+- View interactive examples in our [Storybook](https://sibilsoren.github.io/spinner-zilla/)
