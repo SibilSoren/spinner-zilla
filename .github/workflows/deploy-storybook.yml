@@ -1,4 +1,4 @@
-name: Deploy Storybook
+name: Deploy Landing Page
 
 on:
   push:
@@ -24,11 +24,19 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Install Dependencies
+      - name: Install Main Dependencies
         run: npm install
         
-      - name: Build Storybook
-        run: npm run build-storybook
+      - name: Build Main Package
+        run: npm run build
+        
+      - name: Install Example App Dependencies
+        working-directory: ./example
+        run: npm install
+        
+      - name: Build Example App
+        working-directory: ./example
+        run: npm run build
         
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -36,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './storybook-static'
+          path: './example/dist'
           
       - name: Deploy to GitHub Pages
         id: deployment
