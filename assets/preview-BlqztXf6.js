@@ -1,0 +1,1 @@
+import{j as o}from"./jsx-runtime-Nms4Y4qS.js";import"./index-BwDkhjyp.js";import"./_commonjsHelpers-BosuxZz1.js";const a={parameters:{actions:{argTypesRegex:"^on[A-Z].*"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/}},docs:{story:{inline:!0}}},decorators:[r=>o.jsx("div",{className:"p-4",children:o.jsx(r,{})})]};export{a as default};
